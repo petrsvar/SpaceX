@@ -10,4 +10,4 @@ The app downloads all past launches from api.spacexdata.com as a JSON file. It i
 The app shows all the past SpaceX launches and some details. The functionality will be extended to include searches, show future launches and save options from the ActionSheet.
 
 [4] To do:  
-Documentation. Searches. Order by parameters. ActionSheet with options. Integrate Alamofire manually.
+Handle exceptions. Test. Documentation. Searches. Order by parameters. ActionSheet with options. Integrate Alamofire manually.
