@@ -1,6 +1,7 @@
 SpaceX is a simple iOS demo app developed for a Jablotron assignment. I imagined a situation that I am new at work and I am supposed to join the project. I wrote the code I would love to start working on. The app shows SpaceX launches.
 
 [1] Dependencies
+
 The project is using the Alamofire library for networking (https://github.com/Alamofire/Alamofire). It is currently integrated into the project with CocoaPods (https://cocoapods.org). The integration should be changed to manual in the production code. 
 
 [2] Networking
