@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+// [1]
+// Creates the instance of NetworkController (located in Networking/NetworkController.swift)
+// and opens ContentView (located in Views/ContentView.swift)
+// --> Views/ContentView [2]
+
 @main
 struct SpaceXApp: App {
     @StateObject private var networkController = NetworkController()

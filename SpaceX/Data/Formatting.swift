@@ -7,6 +7,8 @@
 
 import Foundation
 
+// [6] Format data extracted from JSON
+
 extension Date {
     var formatted: String {
         let formatter = DateFormatter()
@@ -16,6 +18,7 @@ extension Date {
     }
 }
 
+// Format "date" field
 extension DateFormatter {
     static let fullISO8601: DateFormatter = {
         let formatter = DateFormatter()
@@ -34,6 +37,7 @@ extension Int {
     }
 }
 
+// Format "succeded" filed
 extension Bool {
     var formatted: String {
         return self ? "Succeeded" : "Failed"

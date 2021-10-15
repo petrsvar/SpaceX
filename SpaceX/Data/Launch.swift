@@ -7,7 +7,11 @@
 
 import Foundation
 
-// Data model
+// [9]
+// Data model for the app.
+// The "details" filed is not mandatory, therefore teh value is issing sometimes.
+// The missing value is replaced by the empty string ("") for the consistency.
+
 struct Launch: Identifiable {
     let id: Int
     let missionName: String

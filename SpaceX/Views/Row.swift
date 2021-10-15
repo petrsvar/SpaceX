@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// [4]
+// Prepare a structure of the row for the list (View/ListView.swift)
+
 struct Row: View {
     let title: String
     let subtitle1: String

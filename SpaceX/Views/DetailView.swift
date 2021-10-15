@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// [5]
+// Show details about the launch
+
 struct DetailView: View {
     let launch: Launch
     
@@ -18,6 +21,11 @@ struct DetailView: View {
                 .bold()
             VStack ( alignment: .leading) {
                 Text(launch.date.formatted)
+                
+                // Show formatted data
+                // See Data/Formatting.swift for details
+                // --> Data/Formatting.swift [6]
+                
                 Text(launch.succeeded.formatted).padding(.bottom, 2)
                 Text(launch.details)
             }

@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+// [8]
+// Download JSON data from server,
+// validate for the status code,
+// return JSON back to the NetworkController (Data/NetworkController.swift)
+
 class NetworkRequest {
     let url: URL
     

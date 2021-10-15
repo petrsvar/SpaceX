@@ -7,11 +7,17 @@
 
 import Foundation
 
+// [7]
+// Fetch all past launches from api.spacexdata.com v4
+// See more details on the API at https://github.com/r-spacex/SpaceX-API
+// Decode JSON data using customised Codable decoder
+// Store data in the data model (Data/Launch.swift)
+// --> Networking/NetworkRequest.swift [8]
+// --> Data/Launch.swift [9]
+
+
 class NetworkController: ObservableObject {
     @Published var launches: [Launch] = []
-    
-    // Fetch all past launches from api.spacexdata.com v4
-    // See more details on the API at https://github.com/r-spacex/SpaceX-API
     
     func fetchLaunches() {
         let url = URL(string: "https://api.spacexdata.com/v4/launches/past")!
@@ -25,11 +31,7 @@ class NetworkController: ObservableObject {
     }
 }
 
-
-
 private extension NetworkController {
-    
-    // Decode JSON data using customised decoder to decode the launch data correctly
     
     func decode(_ data: Data) {
         let decoder = JSONDecoder()
