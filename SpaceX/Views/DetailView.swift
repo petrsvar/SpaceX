@@ -16,7 +16,7 @@ struct DetailView: View {
     
     var body: some View {
         
-        VStack(spacing: 8.0) {
+        VStack(spacing: 0.0) {
             Text(launch.missionName)
                 .font(.largeTitle)
                 .bold()
@@ -29,15 +29,21 @@ struct DetailView: View {
                 
                 Text(launch.succeeded.formatted).padding(.bottom, 2)
                 Text(launch.details)
+                Spacer()
             }
             .padding(.leading, 20)
             .padding(.trailing, 20)
             .foregroundColor(.gray)
             .font(.subheadline)
-            
-            Spacer()
+            .padding(.top, 20.0)
+            .padding(.bottom, 40.0)
+            .frame(
+                  minWidth: 0,
+                  maxWidth: .infinity,
+                  minHeight: 0,
+                  maxHeight: .infinity,
+                  alignment: .topLeading
+                )
         }
-        .padding(.top, 32.0)
-        .padding(.bottom, 40.0)
     }
 }

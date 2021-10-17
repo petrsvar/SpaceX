@@ -49,6 +49,7 @@ struct ListView: View {
                 }
             }
             .navigationBarTitle("Launches")
+            .background(Color.white)
         }
     }
 }
