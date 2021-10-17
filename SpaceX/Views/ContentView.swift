@@ -21,7 +21,7 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ListView(launches: networkController.launches)
+            ListView(launches: networkController.launches, errorInfo: networkController.errorInfo)
         }.onAppear(perform: networkController.fetchLaunches)
     }
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftUI
 
 // [8]
 // Download JSON data from server,
@@ -14,17 +15,18 @@ import Alamofire
 // return JSON back to the NetworkController (Data/NetworkController.swift)
 
 class NetworkRequest {
+
     let url: URL
     
     init(url: URL) {
         self.url = url
     }
     
-    func execute(withCompletion completion: @escaping (Data?) -> Void) {
-        Session.default.request(url)
-            .validate(statusCode: 200..<300)
-            .response{
-                response in completion(response.data)
-            }
+    func execute(withCompletion completion: @escaping (Data?, Int?) -> Void) {
+        
+        Session.default.request(url).response{
+            response in completion(response.data, response.response?.statusCode ?? 0)
+                // let statusCode = response.response?.statusCode ?? 0
+        }
     }
 }
