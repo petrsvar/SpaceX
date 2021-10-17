@@ -3,14 +3,15 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 03/10/2021.
-//
+
+
+//  [9]
+//  Data model for the app.
+//  The "details" filed is not mandatory, therefore teh value is issing sometimes.
+//  The missing value is replaced by the empty string ("") for the consistency.
+
 
 import Foundation
-
-// [9]
-// Data model for the app.
-// The "details" filed is not mandatory, therefore teh value is issing sometimes.
-// The missing value is replaced by the empty string ("") for the consistency.
 
 struct Launch: Identifiable {
     let id: Int

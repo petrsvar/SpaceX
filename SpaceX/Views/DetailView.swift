@@ -3,12 +3,13 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 01/10/2021.
-//
+
+
+//  [5]
+//  Show details about the launch
+
 
 import SwiftUI
-
-// [5]
-// Show details about the launch
 
 struct DetailView: View {
     let launch: Launch

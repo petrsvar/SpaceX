@@ -3,9 +3,7 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 09/10/2021.
-//
 
-import Foundation
 
 // [7]
 // Fetch all past launches from api.spacexdata.com v4
@@ -17,6 +15,8 @@ import Foundation
 // --> Data/Launch.swift [9]
 // --> Data/Errors.swift [10]
 
+
+import Foundation
 
 class NetworkController: ObservableObject {
     @Published var launches: [Launch] = []

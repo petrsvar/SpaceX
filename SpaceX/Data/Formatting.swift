@@ -3,11 +3,11 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 07/10/2021.
-//
 
-import Foundation
 
 // [6] Format data extracted from JSON
+
+import Foundation
 
 extension Date {
     var formatted: String {

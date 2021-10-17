@@ -3,12 +3,12 @@
 //  SpaceX
 //
 //  Created by Twice Upon on 16/10/2021.
-//
+
+
+//  [10]
+//  Data model for networking eroor messages. The "id" is not in use yet.
 
 import Foundation
-
-// [10]
-// Data model for networking eroor messages. The "id" is not in use yet.
 
 struct ErrorInfo: Identifiable {
 

@@ -3,9 +3,6 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 09/10/2021.
-//
-
-import SwiftUI
 
 // [2]
 // Connect SwiftUI interface to the NetworkController.
@@ -15,6 +12,8 @@ import SwiftUI
 // Fetch JSOM with launches (networkController.fetchLaunches) on appear.
 // --> Views/ListView [3]
 // --> Networking/NetworkController [7]
+
+import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var networkController: NetworkController

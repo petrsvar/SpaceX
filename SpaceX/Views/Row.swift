@@ -3,12 +3,12 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 08/10/2021.
-//
 
-import SwiftUI
 
 // [4]
 // Prepare a structure of the row for the list (View/ListView.swift)
+
+import SwiftUI
 
 struct Row: View {
     let title: String

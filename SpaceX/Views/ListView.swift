@@ -3,16 +3,17 @@
 //  SpaceX
 //
 //  Created by Petr Svarovsky on 01/10/2021.
-//
+
+
+//  [3]
+//  Show a list of launches using a row definition (Views/Row.swift)
+//  A tap on the row opens a detail view (Views/DetailView.swift)
+//  Show an alert if data is not loaded
+//  --> Views/Row.swift [4]
+//  --> Views/DetailView.swift [5]
+
 
 import SwiftUI
-
-// [3]
-// Show a list of launches using a row definition (Views/Row.swift)
-// A tap on the row opens a detail view (Views/DetailView.swift)
-// Show an alert if data is not loaded
-// --> Views/Row.swift [4]
-// --> Views/DetailView.swift [5]
 
 struct ListView: View {
     let launches: [Launch]
