@@ -20,7 +20,14 @@ import Foundation
 
 class NetworkController: ObservableObject {
     @Published var launches: [Launch] = []
-    @Published var errorInfo = ErrorInfo(showAlert: false, id: 0, title: "Error", message: "")
+    @Published var errorInfo = ErrorInfo(id: 0,
+                                         showAlert: false,
+                                         title: "Error",
+                                         message: "")
+    @Published var networkStatus = NetworkStatus(id: 0,
+                                                 status: "idle",
+                                                 statusCode: 0) // server status code
+    
     
     func fetchLaunches() {
         let url = URL(string: "https://api.spacexdata.com/v4/launches/past")!
@@ -44,6 +51,8 @@ class NetworkController: ObservableObject {
                     self?.errorInfo.id = 2
                     self?.errorInfo.message = "There is some problem on the server. Try again later, please"
                 }
+                
+                self?.networkStatus.statusCode = code
             }
         }
     }

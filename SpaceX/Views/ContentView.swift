@@ -20,7 +20,9 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ListView(launches: networkController.launches, errorInfo: networkController.errorInfo)
+            ListView(launches: networkController.launches,
+                     errorInfo: networkController.errorInfo,
+                     networkStatus: networkController.networkStatus)
         }.onAppear(perform: networkController.fetchLaunches)
     }
 }
