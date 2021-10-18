@@ -17,9 +17,9 @@ struct Row: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 2.0) {
-                Text(title).font(.headline)
-                Text(subtitle1).font(.subheadline).foregroundColor(.gray)
-                Text(subtitle2).font(.subheadline).foregroundColor(.gray)
+            Text(title).font(.headline)
+            Text(subtitle1).font(.subheadline).foregroundColor(.gray)
+            Text(subtitle2).font(.subheadline).foregroundColor(.gray)
         }.padding(.vertical, 16.0)
     }
 }

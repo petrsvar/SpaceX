@@ -26,7 +26,7 @@ struct ListView: View {
 
             // Bottom layer
             VStack() {
-                
+                Spacer()
                 //Show the alert
                 if (errorInfo.showAlert) {
                     Spacer()
@@ -51,9 +51,11 @@ struct ListView: View {
                                 subtitle2: launch.succeeded.formatted)
                         }
                     }
-                }
-                .navigationBarTitle("Launches")
-                .background(Color.white)
+                }.navigationBarTitle("Launches")
+            }
+            .background(Color.white.ignoresSafeArea())
+            .onAppear {
+                UITableView.appearance().backgroundColor = .clear
             }
             
             // Top layer
