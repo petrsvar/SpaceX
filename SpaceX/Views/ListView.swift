@@ -51,12 +51,14 @@ struct ListView: View {
                                 subtitle2: launch.succeeded.formatted)
                         }
                     }
-                }.navigationBarTitle("Launches")
+                }
+                .listStyle(InsetListStyle())
+                .navigationBarTitle("Launches")
             }
-            .background(Color.white.ignoresSafeArea())
-            .onAppear {
-                UITableView.appearance().backgroundColor = .clear
-            }
+//            .background(Color.white.ignoresSafeArea())
+//            .onAppear {
+//                UITableView.appearance().backgroundColor = .clear
+//            }
             
             // Top layer
             VStack() {
