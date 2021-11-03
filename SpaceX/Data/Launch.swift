@@ -19,6 +19,8 @@ struct Launch: Identifiable {
     let date: Date
     let succeeded: Bool
     let details: String
+    let rocket: String
+    // let rocketName: String
 }
 
 extension Launch: Decodable {
@@ -28,6 +30,7 @@ extension Launch: Decodable {
         case date = "date_utc"
         case succeeded = "success"
         case details = "details"
+        case rocket = "rocket"
 }
     
     // Custom initializer to fix sometimes missing details
@@ -36,7 +39,8 @@ extension Launch: Decodable {
         id = try container.decode(Int.self, forKey: .id)
         missionName = try container.decode(String.self, forKey: .missionName)
         date = try container.decode(Date.self, forKey: .date)
-        succeeded = try container.decode(Bool.self, forKey: .succeeded)
+        succeeded = (try container.decodeIfPresent(Bool.self, forKey: .succeeded)) ?? false
         details = (try container.decodeIfPresent(String.self, forKey: .details)) ?? "" // replace nil by ""
+        rocket = try container.decode(String.self, forKey: .rocket)
     }
 }

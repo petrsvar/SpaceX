@@ -9,6 +9,7 @@
 //  Show a list of launches using a row definition (Views/Row.swift)
 //  A tap on the row opens a detail view (Views/DetailView.swift)
 //  Show an alert if data is not loaded
+//  Search in launch names
 //  --> Views/Row.swift [4]
 //  --> Views/DetailView.swift [5]
 
@@ -20,6 +21,7 @@ struct ListView: View {
     let errorInfo: ErrorInfo
     let networkStatus: NetworkStatus
     @State var networkProblem: Bool = true
+    @State var searchText: String = ""
     
     var body: some View {
         ZStack() {
@@ -37,9 +39,18 @@ struct ListView: View {
                    }
                 }
                 
-                //Show the list of launches
+                // Search bar
+                SearchBar(text: $searchText)
+                    .padding(.top, -30)
+                
+                // List of launches
                 List {
-                    ForEach(launches) { launch in
+                    
+                    // Create array of filtered launches by name
+                    let filteredLaunches = launches.filter({ searchText.isEmpty ? true : $0.missionName.contains(searchText) })
+                    
+                    // Show the list of filtered launches
+                    ForEach(filteredLaunches) { launch in
                         NavigationLink(destination: DetailView(launch: launch)) {
                             Row(title: launch.missionName,
                                 
@@ -52,13 +63,10 @@ struct ListView: View {
                         }
                     }
                 }
+                .padding(.leading, 1)
                 .listStyle(InsetListStyle())
                 .navigationBarTitle("Launches")
             }
-//            .background(Color.white.ignoresSafeArea())
-//            .onAppear {
-//                UITableView.appearance().backgroundColor = .clear
-//            }
             
             // Top layer
             VStack() {
@@ -68,3 +76,49 @@ struct ListView: View {
         }
     }
 }
+
+// Custom made search bar to keep compatibility with iOS 13 and 14
+struct SearchBar: View {
+    @Binding var text: String
+    @State private var isEditing = false
+ 
+    var body: some View {
+        HStack {
+            TextField("Search mission name", text: $text)
+                .padding(7)
+                .padding(.top, 0)
+                .padding(.horizontal, 25)
+                .background(Color(.systemGray6))
+                .cornerRadius(18)
+                .overlay(
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                 
+                        if isEditing {
+                            Button(action: {
+                                self.text = ""
+                            }) {
+                                Image(systemName: "multiply.circle.fill")
+                                    .foregroundColor(.gray)
+                                    .padding(.trailing, 8)
+                            }
+                        }
+                    }
+                )
+                .padding(.horizontal, 10)
+                .padding(.bottom, 2)
+                .onTapGesture {
+                    self.isEditing = true
+                }
+        }
+        .padding(.top, 16)
+        .padding(.trailing, 7)
+        .padding(.bottom, 2)
+        .padding(.leading, 5)
+    }
+}
+
+

@@ -19,23 +19,25 @@
 import Foundation
 
 class NetworkController: ObservableObject {
+    // Properties
     @Published var launches: [Launch] = []
     @Published var errorInfo = ErrorInfo(id: 0,
                                          showAlert: false,
                                          title: "Error",
                                          message: "")
     @Published var networkStatus = NetworkStatus(id: 0,
-                                                 status: "idle",
-                                                 statusCode: 0) // server status code
+                                                 status: "idle", // network status
+                                                 statusCode: 0)  // server status code
+    let decoder = JSONDecoder()
     
-    
+    // Fetch launches
     func fetchLaunches() {
-        let url = URL(string: "https://api.spacexdata.com/v4/launches/past")!
+        let url = URL(string: "https://api.spacexdata.com/v4/launches")!
         let request = NetworkRequest(url: url)
 
         request.execute { [weak self] (data, code) in
             if let data = data {
-                self?.decode(data)
+                self?.decodeLaunches(data)
             }
             
             if let code = code {
@@ -58,10 +60,11 @@ class NetworkController: ObservableObject {
     }
 }
 
+// Extension
 private extension NetworkController {
     
-    func decode(_ data: Data) {
-        let decoder = JSONDecoder()
+    // Decode launches
+    func decodeLaunches(_ data: Data) {
         decoder.dateDecodingStrategy = .formatted(DateFormatter.fullISO8601)
         launches = (try? decoder.decode([Launch].self, from: data)) ?? []
     }
